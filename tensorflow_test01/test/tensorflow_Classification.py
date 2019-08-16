@@ -54,9 +54,10 @@ with tf.Session() as sess:
     sess.run(init)
 
     # 训练1000次
-    for i in range(1000):
+    for i in range(4000):
         batch_xs, batch_ys = mnist.train.next_batch(100)
         sess.run(train_step, feed_dict={xs: batch_xs, ys: batch_ys})
         if i % 20 == 0:
+            # 打印训练的精度
             print(compute_accuracy(mnist.test.images, mnist.test.labels))
 
